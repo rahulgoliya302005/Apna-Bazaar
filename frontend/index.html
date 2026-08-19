@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Apna Bazaar</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- LOGIN PAGE -->
+    <!-- ========================= -->
+
+    <section
+        id="loginPage"
+        class="login-page"
+    >
+
+        <div class="login-container">
+
+            <div class="brand">
+                <div class="brand-icon">
+                    🛍️
+                </div>
+
+                <h1>Apna Bazaar</h1>
+
+                <p>
+                    Your favorite products, delivered to you.
+                </p>
+            </div>
+
+            <div class="login-card">
+
+                <h2>Welcome Back!</h2>
+
+                <p class="login-subtitle">
+                    Login using your mobile number
+                </p>
+
+                <!-- MOBILE STEP -->
+
+                <div id="mobileStep">
+
+                    <label>
+                        Mobile Number
+                    </label>
+
+                    <div class="mobile-input">
+
+                        <span>
+                            +91
+                        </span>
+
+                        <input
+                            type="tel"
+                            id="mobile"
+                            placeholder="Enter 10 digit mobile number"
+                            maxlength="10"
+                        >
+
+                    </div>
+
+                    <button
+                        id="sendOtpBtn"
+                        class="primary-btn"
+                    >
+                        Get OTP
+                    </button>
+
+                </div>
+
+                <!-- OTP STEP -->
+
+                <div
+                    id="otpStep"
+                    class="hidden"
+                >
+
+                    <label>
+                        Enter OTP
+                    </label>
+
+                    <input
+                        type="text"
+                        id="otp"
+                        class="otp-input"
+                        placeholder="Enter 6 digit OTP"
+                        maxlength="6"
+                    >
+
+                    <button
+                        id="verifyOtpBtn"
+                        class="primary-btn"
+                    >
+                        Login
+                    </button>
+
+                    <button
+                        id="changeMobileBtn"
+                        class="text-btn"
+                    >
+                        Change Mobile Number
+                    </button>
+
+                </div>
+
+                <div
+                    id="loginMessage"
+                    class="message"
+                ></div>
+
+                <div class="or">
+                    <span></span>
+                    <p>OR</p>
+                    <span></span>
+                </div>
+
+                <button
+                    id="skipLoginBtn"
+                    class="guest-btn"
+                >
+                    Continue as Guest
+                </button>
+
+                <p class="terms">
+                    By continuing, you agree to our
+                    Terms & Privacy Policy.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- MAIN WEBSITE -->
+    <!-- ========================= -->
+
+    <section
+        id="mainWebsite"
+        class="hidden"
+    >
+
+        <!-- NAVBAR -->
+
+        <nav class="navbar">
+
+            <div class="nav-container">
+
+                <a
+                    href="#"
+                    class="logo"
+                    onclick="showHome()"
+                >
+                    🛍️ Apna Bazaar
+                </a>
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search products..."
+                    >
+
+                    <button
+                        onclick="searchProducts()"
+                    >
+                        🔍
+                    </button>
+
+                </div>
+
+                <div class="nav-actions">
+
+                    <button
+                        onclick="showHome()"
+                    >
+                        🏠
+                        <span>Home</span>
+                    </button>
+
+                    <button
+                        onclick="showWishlist()"
+                    >
+                        ❤️
+                        <span>Wishlist</span>
+                        <b id="wishlistCount">
+                            0
+                        </b>
+                    </button>
+
+                    <button
+                        onclick="showCart()"
+                    >
+                        🛒
+                        <span>Cart</span>
+                        <b id="cartCount">
+                            0
+                        </b>
+                    </button>
+
+                    <button
+                        onclick="showProfile()"
+                    >
+                        👤
+                        <span>Profile</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+
+        <!-- HOME -->
+
+        <main id="homeSection">
+
+            <!-- HERO -->
+
+            <section class="hero">
+
+                <div class="hero-content">
+
+                    <div>
+
+                        <span class="hero-tag">
+                            BIG SALE
+                        </span>
+
+                        <h1>
+                            Shop Something.
+                            <br>
+                            Let's Find on Apna Bazaar.
+                        </h1>
+
+                        <p>
+                            Discover amazing products
+                            at amazing prices.
+                        </p>
+
+                        <button
+                            onclick="scrollToProducts()"
+                            class="shop-btn"
+                        >
+                            Shop Now →
+                        </button>
+
+                    </div>
+
+                    <div class="hero-emoji">
+                        🛍️
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- CATEGORIES -->
+
+            <section class="categories">
+
+                <h2>
+                    Shop By Category
+                </h2>
+
+                <div class="category-list">
+
+                    <button
+                        onclick="filterCategory('All')"
+                        class="category-btn active"
+                    >
+                        <span>🛍️</span>
+                        All
+                    </button>
+
+                    <button
+                        onclick="filterCategory('Mobiles')"
+                        class="category-btn"
+                    >
+                        <span>📱</span>
+                        Mobiles
+                    </button>
+
+                    <button
+                        onclick="filterCategory('Electronics')"
+                        class="category-btn"
+                    >
+                        <span>🎧</span>
+                        Electronics
+                    </button>
+
+                    <button
+                        onclick="filterCategory('Fashion')"
+                        class="category-btn"
+                    >
+                        <span>👕</span>
+                        Fashion
+                    </button>
+
+                    <button
+                        onclick="filterCategory('Shoes')"
+                        class="category-btn"
+                    >
+                        <span>👟</span>
+                        Shoes
+                    </button>
+
+                    <button
+                        onclick="filterCategory('Home')"
+                        class="category-btn"
+                    >
+                        <span>🏠</span>
+                        Home
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- PRODUCTS -->
+
+            <section
+                id="productsSection"
+                class="products-section"
+            >
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Latest Products
+                        </h2>
+
+                        <p>
+                            Explore our latest collection
+                        </p>
+
+                    </div>
+
+                    <select
+                        id="sortSelect"
+                        onchange="sortProducts()"
+                    >
+
+                        <option value="default">
+                            Sort By
+                        </option>
+
+                        <option value="low">
+                            Price: Low to High
+                        </option>
+
+                        <option value="high">
+                            Price: High to Low
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div
+                    id="productsGrid"
+                    class="products-grid"
+                >
+
+                    <div class="loading">
+                        Loading products...
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- CART -->
+
+        <section
+            id="cartSection"
+            class="page-section hidden"
+        >
+
+            <div class="page-container">
+
+                <div class="page-title">
+
+                    <h1>
+                        🛒 My Cart
+                    </h1>
+
+                    <button
+                        onclick="showHome()"
+                        class="back-btn"
+                    >
+                        ← Continue Shopping
+                    </button>
+
+                </div>
+
+                <div
+                    id="cartContent"
+                    class="cart-layout"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WISHLIST -->
+
+        <section
+            id="wishlistSection"
+            class="page-section hidden"
+        >
+
+            <div class="page-container">
+
+                <div class="page-title">
+
+                    <h1>
+                        ❤️ My Wishlist
+                    </h1>
+
+                    <button
+                        onclick="showHome()"
+                        class="back-btn"
+                    >
+                        ← Continue Shopping
+                    </button>
+
+                </div>
+
+                <div
+                    id="wishlistContent"
+                    class="products-grid"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROFILE -->
+
+        <section
+            id="profileSection"
+            class="page-section hidden"
+        >
+
+            <div class="page-container">
+
+                <h1>
+                    👤 My Profile
+                </h1>
+
+                <div class="profile-card">
+
+                    <div class="profile-avatar">
+                        👤
+                    </div>
+
+                    <h2 id="profileName">
+                        User
+                    </h2>
+
+                    <p id="profileMobile">
+                        +91
+                    </p>
+
+                    <div class="profile-info">
+
+                        <div>
+                            <span>
+                                Account Type
+                            </span>
+
+                            <strong id="accountType">
+                                -
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>
+                                Orders
+                            </span>
+
+                            <strong>
+                                0
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>
+                                Wishlist
+                            </span>
+
+                            <strong id="profileWishlist">
+                                0
+                            </strong>
+                        </div>
+
+                    </div>
+
+                    <button
+                        onclick="logout()"
+                        class="logout-btn"
+                    >
+                        Logout
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+
+    <!-- TOAST -->
+
+    <div
+        id="toast"
+        class="toast"
+    >
+        Product added!
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
