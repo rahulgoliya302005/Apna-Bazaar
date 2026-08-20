@@ -512,7 +512,7 @@ async function loadProducts() {
 
         const response =
             await fetch(
-                `${API_URL}/products`
+                `${API_URL}/api/products`
             );
 
 
